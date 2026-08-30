@@ -1,7 +1,6 @@
 .location-section {
   z-index: 1;
   background: var(--white);
-  border-top: 1px solid var(--line);
 }
 
 .location__grid {
@@ -22,23 +21,26 @@
   display: grid;
   grid-template-columns: auto 1fr;
   gap: 0.85rem;
-  padding: 1.1rem 1.15rem;
-  background: var(--cream);
+  padding: 1.15rem 1.2rem;
+  background: var(--white);
   border: 1px solid var(--line);
-  border-radius: var(--radius);
-  transition: border-color 0.2s ease;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
 }
 
 .location__card:hover {
   border-color: var(--line-strong);
+  box-shadow: var(--shadow-card);
+  transform: translateY(-2px);
 }
 
 .location__icon {
   width: 40px;
   height: 40px;
   border-radius: var(--radius-sm);
-  background: var(--yellow-soft);
-  color: var(--red);
+  background: var(--green-soft);
+  color: var(--green);
   display: grid;
   place-items: center;
   flex-shrink: 0;
@@ -97,11 +99,11 @@
 
 .location__map {
   position: relative;
-  border-radius: var(--radius);
+  border-radius: var(--radius-lg);
   overflow: hidden;
   min-height: 400px;
   border: 1px solid var(--line);
-  box-shadow: var(--shadow-sm);
+  box-shadow: var(--shadow-card);
 }
 
 .location__map iframe {

@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { Logo } from './Logo'
 import './Navbar.css'
 
 const links = [
@@ -22,12 +23,14 @@ export function Navbar() {
 
   return (
     <header className={`nav ${scrolled ? 'nav--scrolled' : ''}`}>
+      <div className="italian-stripe nav__stripe" aria-hidden>
+        <span />
+        <span />
+        <span />
+      </div>
       <div className="container nav__inner">
         <a href="#pocetna" className="nav__brand" onClick={() => setOpen(false)}>
-          <span className="nav__mark">R</span>
-          <span className="nav__name">
-            Radu <em>Pizze</em>
-          </span>
+          <Logo className="nav__logo" variant="light" />
         </a>
 
         <button

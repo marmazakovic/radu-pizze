@@ -65,7 +65,15 @@ export function Carousel() {
           ))}
         </div>
 
-        <div className="carousel__counter" aria-live="polite">
+        <div
+          className="visually-hidden"
+          aria-live="polite"
+          aria-atomic="true"
+        >
+          {carouselSlides[index].title} — {carouselSlides[index].subtitle}
+        </div>
+
+        <div className="carousel__counter" aria-hidden="true">
           {String(index + 1).padStart(2, '0')} / {String(total).padStart(2, '0')}
         </div>
       </div>

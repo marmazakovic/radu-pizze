@@ -1,3 +1,4 @@
+import { Logo } from './Logo'
 import './Hero.css'
 
 export function Hero() {
@@ -5,7 +6,7 @@ export function Hero() {
     <section id="pocetna" className="hero">
       <div className="container hero__grid">
         <div className="hero__copy">
-          <p className="section-eyebrow">Novi Sad · Italia nel cuore</p>
+          <p className="section-eyebrow section-eyebrow--light">Novi Sad · Italia nel cuore</p>
           <h1 className="hero__title">
             Autentične pice,
             <br />
@@ -13,14 +14,14 @@ export function Hero() {
           </h1>
           <p className="hero__lead">
             Radu Pizze — hrskava kora, sveži sastojci i ukus koji te vraća u Italiju.
-            Poruči na adresu ili svrati u Ćirpanovu 2.
+            Poruči online ili svrati u Ćirpanovu 2.
           </p>
           <div className="hero__actions">
             <a href="#meni" className="btn btn-primary">
               Pogledaj meni
             </a>
-            <a href="#poruci" className="btn btn-secondary">
-              Poruči dostavu
+            <a href="#poruci" className="btn btn-outline-light">
+              Poruči online
             </a>
           </div>
           <ul className="hero__meta">
@@ -34,25 +35,19 @@ export function Hero() {
             </li>
             <li>
               <strong>Dostava</strong>
-              <span>Online porudžbina</span>
+              <span>Od 400 RSD</span>
             </li>
           </ul>
         </div>
 
         <div className="hero__logo-wrap">
-          <div className="hero__logo-ring">
-            {/* Placeholder — zameni kada stigne logo */}
-            <div className="hero__logo" role="img" aria-label="Radu Pizze logo">
-              <span className="hero__logo-r">R</span>
-              <span className="hero__logo-word">
-                Radu
-                <em>Pizze</em>
-              </span>
-              <span className="hero__logo-sub">dal 2024 · Novi Sad</span>
-            </div>
-          </div>
-          <p className="hero__logo-note">Logo će biti zamenjen kada ga pošalješ</p>
+          <Logo className="hero__logo" variant="light" />
         </div>
+      </div>
+      <div className="italian-stripe hero__stripe" aria-hidden>
+        <span />
+        <span />
+        <span />
       </div>
     </section>
   )

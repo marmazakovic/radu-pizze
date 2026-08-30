@@ -1,32 +1,41 @@
-# React + TypeScript + Vite
+# Radu Pizze — website
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+Sajt picerije **Radu Pizze** (Novi Sad, Ćirpanova 2).
 
-Currently, two official plugins are available:
+## Live preview
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+https://marmazakovic.github.io/radu-pizze/
 
-## React Compiler
+## Lokalni razvoj
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the Oxlint configuration
-
-If you are developing a production application, we recommend enabling type-aware lint rules by installing `oxlint-tsgolint` and editing `.oxlintrc.json`:
-
-```json
-{
-  "$schema": "./node_modules/oxlint/configuration_schema.json",
-  "plugins": ["react", "typescript", "oxc"],
-  "options": {
-    "typeAware": true
-  },
-  "rules": {
-    "react/rules-of-hooks": "error",
-    "react/only-export-components": ["warn", { "allowConstantExport": true }]
-  }
-}
+```bash
+npm install
+npm run dev
 ```
 
-See the [Oxlint rules documentation](https://oxc.rs/docs/guide/usage/linter/rules) for the full list of rules and categories.
+Otvori http://localhost:5173
+
+## Build
+
+```bash
+npm run build
+npm run preview
+```
+
+## Struktura
+
+- `src/data/menu.ts` — meni i cene (lokalne, iz Excel cenovnika)
+- `src/config/site.ts` — adresa, dostava, min. porudžbina, zona
+- `src/context/CartContext.tsx` — korpa (meni + porudžbina)
+- `src/components/` — UI sekcije
+
+## Deploy
+
+Push na `main` automatski deployuje GitHub Pages (`.github/workflows/deploy.yml`).
+
+## Šta još treba od vlasnika
+
+- Logo (zamenjuje placeholder u hero sekciji)
+- Radno vreme i telefon
+- Prave fotografije jela
+- Backend za porudžbine (forma trenutno spremna za API)

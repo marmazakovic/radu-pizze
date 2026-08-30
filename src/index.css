@@ -1,29 +1,42 @@
 :root {
-  /* Brand palette — warm, not sterile */
-  --white: #ffffff;
-  --cream: #fffbf6;
-  --cream-warm: #fff6eb;
-  --yellow: #e5b020;
-  --yellow-soft: #fef4dc;
-  --red: #c0392b;
-  --red-deep: #962d22;
-  --red-soft: #fdf0ee;
+  /* Italian palette — terracotta, basil, aged gold, warm cream */
+  --white: #fffcf8;
+  --cream: #faf6f0;
+  --cream-warm: #f3ebe3;
+  --cream-tag: #ede4d8;
+  --yellow: #c9941a;
+  --yellow-soft: #faf0d4;
+  --gold-light: #e8c05a;
+  --red: #b8432f;
+  --red-deep: #8f3324;
+  --red-soft: #faf0ed;
   --green: #2d6a4f;
+  --green-soft: #edf5f0;
 
-  /* Neutrals */
-  --ink: #1c1917;
-  --muted: #6b635c;
-  --line: #ebe4da;
-  --line-strong: #d9cfc2;
+  /* Neutrals — espresso ink, matches logo */
+  --ink: #1a1614;
+  --black: #0d0d0d;
+  --black-soft: #161616;
+  --muted: #6d6359;
+  --muted-light: rgba(255, 252, 248, 0.62);
+  --line: #e8dfd3;
+  --line-strong: #d4c8b8;
+  --line-dark: rgba(255, 255, 255, 0.1);
+
+  /* Surfaces */
+  --surface: var(--white);
+  --surface-muted: var(--cream);
 
   /* Elevation */
-  --shadow: 0 14px 40px rgba(28, 25, 23, 0.07);
-  --shadow-sm: 0 4px 16px rgba(28, 25, 23, 0.05);
+  --shadow: 0 16px 48px rgba(13, 13, 13, 0.1);
+  --shadow-sm: 0 4px 20px rgba(13, 13, 13, 0.06);
+  --shadow-card: 0 8px 32px rgba(13, 13, 13, 0.08);
 
   /* Layout */
-  --radius: 14px;
+  --radius: 16px;
   --radius-sm: 10px;
-  --nav-h: 70px;
+  --radius-lg: 20px;
+  --nav-h: 72px;
   --section-y: clamp(3.5rem, 8vw, 5.5rem);
 
   /* Typography */
@@ -83,7 +96,7 @@ ul {
 }
 
 .container {
-  width: min(1100px, calc(100% - 2.5rem));
+  width: min(1140px, calc(100% - 2.5rem));
   margin-inline: auto;
 }
 
@@ -107,10 +120,18 @@ ul {
 
 .section-eyebrow::before {
   content: '';
-  width: 20px;
-  height: 2px;
-  background: var(--yellow);
+  width: 24px;
+  height: 3px;
+  background: linear-gradient(90deg, var(--green), var(--yellow), var(--red));
   border-radius: 1px;
+}
+
+.section-eyebrow--light {
+  color: var(--gold-light);
+}
+
+.section-eyebrow--light::before {
+  background: linear-gradient(90deg, var(--green), var(--gold-light), var(--red));
 }
 
 /* H2 — section titles */
@@ -151,12 +172,14 @@ ul {
 }
 
 .btn-primary {
-  background: var(--red);
+  background: linear-gradient(180deg, var(--red) 0%, var(--red-deep) 100%);
   color: var(--white);
+  box-shadow: 0 2px 8px rgba(184, 67, 47, 0.22);
 }
 
 .btn-primary:hover {
-  background: var(--red-deep);
+  background: linear-gradient(180deg, #c44a36 0%, var(--red-deep) 100%);
+  box-shadow: 0 4px 12px rgba(184, 67, 47, 0.28);
 }
 
 .btn-secondary {
@@ -166,15 +189,68 @@ ul {
 }
 
 .btn-secondary:hover {
-  border-color: var(--red);
-  color: var(--red);
-  background: var(--red-soft);
+  border-color: var(--green);
+  color: var(--green);
+  background: var(--green-soft);
+}
+
+.btn-outline-light {
+  background: transparent;
+  color: var(--white);
+  border: 1.5px solid rgba(255, 252, 248, 0.35);
+}
+
+.btn-outline-light:hover {
+  background: rgba(255, 252, 248, 0.08);
+  border-color: rgba(255, 252, 248, 0.55);
+  color: var(--white);
 }
 
 .btn-ghost {
   background: transparent;
   border: 1.5px solid var(--line-strong);
   color: var(--ink);
+}
+
+/* Shared native select — matches form fields & cards */
+.ui-select {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 100%;
+  border: 1.5px solid var(--line);
+  border-radius: var(--radius-sm);
+  padding: 0.72rem 2.4rem 0.72rem 0.9rem;
+  background-color: var(--cream);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%236d6359' stroke-width='2.25' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0.75rem center;
+  background-size: 1rem;
+  font-size: var(--text-sm);
+  font-weight: 400;
+  color: var(--ink);
+  cursor: pointer;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+}
+
+.ui-select:hover {
+  border-color: var(--line-strong);
+  background-color: var(--white);
+}
+
+.ui-select:focus {
+  border-color: var(--yellow);
+  box-shadow: 0 0 0 3px var(--yellow-soft);
+  background-color: var(--white);
+  outline: none;
+}
+
+.ui-select:focus-visible {
+  outline: none;
+}
+
+.ui-select--compact {
+  padding: 0.55rem 2.1rem 0.55rem 0.75rem;
+  font-size: 0.82rem;
 }
 
 /* Subtle italian accent — use sparingly */
@@ -202,4 +278,62 @@ ul {
 ::selection {
   background: var(--yellow-soft);
   color: var(--ink);
+}
+
+/* Skip link — a11y */
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: 1rem;
+  z-index: 2000;
+  padding: 0.65rem 1rem;
+  background: var(--black);
+  color: var(--white);
+  border-radius: var(--radius-sm);
+  font-size: var(--text-sm);
+  font-weight: 500;
+}
+
+.skip-link:focus {
+  top: 1rem;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Focus states — keyboard navigation */
+:focus {
+  outline: none;
+}
+
+:focus-visible {
+  outline: 2px solid var(--yellow);
+  outline-offset: 2px;
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid var(--yellow);
+  outline-offset: 2px;
+}
+
+.menu-tabs button:focus-visible,
+.nav__links a:focus-visible,
+.nav__burger:focus-visible,
+.carousel__nav:focus-visible,
+.carousel__dots button:focus-visible {
+  outline-color: var(--gold-light);
+  outline-offset: 3px;
 }

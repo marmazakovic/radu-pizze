@@ -27,10 +27,14 @@ export const menuCategories: {
   id: MenuCategory
   description: string
 }[] = [
-  { id: 'pizza', description: 'Lokalne cene · 24, 32 i 50 cm' },
-  { id: 'calzone', description: 'Punjena testa' },
-  { id: 'pide', description: 'Barka — domaće testo' },
-  { id: 'sendvic', description: 'Sendviči na ciabatti i focacci' },
+  { id: 'pizza', description: 'Lokalne cene · tri veličine: 24, 32 i 50 cm' },
+  {
+    id: 'calzone',
+    description:
+      'Preklopljena pizza — isto testo i peć, ali punjenje je unutra i peče se zatvorena (nije otvorena pizza).',
+  },
+  { id: 'pide', description: 'Barka · jedna veličina · lokalna cena po komadu' },
+  { id: 'sendvic', description: 'Jedna veličina · lokalna cena po komadu' },
 ]
 
 export function itemsByCategory(category: MenuCategory) {
@@ -367,6 +371,14 @@ export const carouselSlides = [
 
 export function formatPrice(n: number) {
   return `${Math.round(n).toLocaleString('sr-RS')} RSD`
+}
+
+/** Jedna veličina → samo cena; više veličina → label + cena */
+export function formatItemPriceLine(item: MenuItem): string {
+  if (item.sizes.length === 1) {
+    return formatPrice(item.sizes[0].price)
+  }
+  return item.sizes.map((s) => `${s.label} ${formatPrice(s.price)}`).join(' · ')
 }
 
 export function basePrice(item: MenuItem) {
