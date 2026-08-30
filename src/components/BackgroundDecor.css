@@ -1,0 +1,56 @@
+.bg-decor {
+  pointer-events: none;
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.bg-decor__item {
+  position: absolute;
+  opacity: 0.07;
+  animation: floaty 14s ease-in-out infinite;
+}
+
+.bg-decor__item.t1 {
+  top: 14%;
+  left: 5%;
+}
+
+.bg-decor__item.t2 {
+  top: 55%;
+  right: 8%;
+  width: 44px;
+  height: 44px;
+  animation-delay: -4s;
+}
+
+.bg-decor__item.b1 {
+  top: 35%;
+  left: 10%;
+  transform: rotate(-20deg);
+  animation-delay: -2s;
+}
+
+.bg-decor__item.b2 {
+  bottom: 20%;
+  right: 12%;
+  transform: rotate(15deg);
+  animation-delay: -6s;
+}
+
+@keyframes floaty {
+  0%,
+  100% {
+    translate: 0 0;
+  }
+  50% {
+    translate: 0 -10px;
+  }
+}
+
+@media (max-width: 700px) {
+  .bg-decor__item {
+    opacity: 0.05;
+  }
+}

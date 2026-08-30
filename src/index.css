@@ -1,0 +1,205 @@
+:root {
+  /* Brand palette — warm, not sterile */
+  --white: #ffffff;
+  --cream: #fffbf6;
+  --cream-warm: #fff6eb;
+  --yellow: #e5b020;
+  --yellow-soft: #fef4dc;
+  --red: #c0392b;
+  --red-deep: #962d22;
+  --red-soft: #fdf0ee;
+  --green: #2d6a4f;
+
+  /* Neutrals */
+  --ink: #1c1917;
+  --muted: #6b635c;
+  --line: #ebe4da;
+  --line-strong: #d9cfc2;
+
+  /* Elevation */
+  --shadow: 0 14px 40px rgba(28, 25, 23, 0.07);
+  --shadow-sm: 0 4px 16px rgba(28, 25, 23, 0.05);
+
+  /* Layout */
+  --radius: 14px;
+  --radius-sm: 10px;
+  --nav-h: 70px;
+  --section-y: clamp(3.5rem, 8vw, 5.5rem);
+
+  /* Typography */
+  --font-display: 'Cormorant Garamond', Georgia, serif;
+  --font-body: 'Outfit', system-ui, sans-serif;
+
+  --text-xs: 0.72rem;
+  --text-sm: 0.875rem;
+  --text-base: 1rem;
+  --text-lg: 1.125rem;
+  --text-xl: clamp(1.85rem, 3.5vw, 2.65rem);
+  --text-hero: clamp(2.75rem, 5.5vw, 3.85rem);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  color: var(--ink);
+  background: var(--cream);
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+  color: inherit;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+}
+
+.container {
+  width: min(1100px, calc(100% - 2.5rem));
+  margin-inline: auto;
+}
+
+.section {
+  padding: var(--section-y) 0;
+  position: relative;
+}
+
+/* Eyebrow — small label above headings */
+.section-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: var(--text-xs);
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--red);
+  margin-bottom: 0.6rem;
+}
+
+.section-eyebrow::before {
+  content: '';
+  width: 20px;
+  height: 2px;
+  background: var(--yellow);
+  border-radius: 1px;
+}
+
+/* H2 — section titles */
+.section-title {
+  font-family: var(--font-display);
+  font-size: var(--text-xl);
+  font-weight: 600;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  margin-bottom: 0.6rem;
+  color: var(--ink);
+}
+
+.section-lead {
+  max-width: 38rem;
+  color: var(--muted);
+  font-size: var(--text-sm);
+  font-weight: 300;
+  line-height: 1.75;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45rem;
+  border: none;
+  border-radius: var(--radius-sm);
+  padding: 0.8rem 1.4rem;
+  font-weight: 500;
+  font-size: var(--text-sm);
+  cursor: pointer;
+  transition: background 0.2s ease, border-color 0.2s ease, transform 0.15s ease;
+}
+
+.btn:active {
+  transform: scale(0.98);
+}
+
+.btn-primary {
+  background: var(--red);
+  color: var(--white);
+}
+
+.btn-primary:hover {
+  background: var(--red-deep);
+}
+
+.btn-secondary {
+  background: var(--white);
+  color: var(--ink);
+  border: 1.5px solid var(--line-strong);
+}
+
+.btn-secondary:hover {
+  border-color: var(--red);
+  color: var(--red);
+  background: var(--red-soft);
+}
+
+.btn-ghost {
+  background: transparent;
+  border: 1.5px solid var(--line-strong);
+  color: var(--ink);
+}
+
+/* Subtle italian accent — use sparingly */
+.italian-stripe {
+  display: flex;
+  height: 3px;
+  width: 100%;
+}
+
+.italian-stripe span:nth-child(1) {
+  flex: 1;
+  background: var(--green);
+}
+
+.italian-stripe span:nth-child(2) {
+  flex: 1;
+  background: var(--white);
+}
+
+.italian-stripe span:nth-child(3) {
+  flex: 1;
+  background: var(--red);
+}
+
+::selection {
+  background: var(--yellow-soft);
+  color: var(--ink);
+}
